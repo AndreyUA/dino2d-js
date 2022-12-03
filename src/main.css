@@ -52,6 +52,6 @@ body {
 /* CANVAS'S STYLES */
 
 #canvas {
-  background-color: grey;
+  background-color: rgb(170, 170, 170);
   margin-bottom: 20px;
 }
