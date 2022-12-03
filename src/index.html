@@ -9,7 +9,27 @@
   </head>
   <body>
     <div class="wrapper">
-      <canvas id="game" width="320" height="400"></canvas>
+      <div class="game">
+        <canvas id="canvas" width="400" height="360"></canvas>
+
+        <div class="game-control">
+          <div class="game-control-arrows">
+            <button>&uarr;</button>
+            <button>&rarr;</button>
+            <button>&darr;</button>
+            <button>&larr;</button>
+          </div>
+          <div class="game-control-actions">
+            <button>B</button>
+            <button>A</button>
+          </div>
+        </div>
+
+        <div class="game-stop">
+          <button>select</button>
+          <button>start</button>
+        </div>
+      </div>
     </div>
 
     <script src="./main.js"></script>
