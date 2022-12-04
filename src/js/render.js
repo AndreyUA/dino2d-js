@@ -5,6 +5,8 @@ import { Canvas } from "./canvas";
 import { Dino } from "./dino";
 
 export class Render {
+  #dino = new Dino();
+
   start() {
     Logger.print("game started");
 
@@ -16,35 +18,38 @@ export class Render {
     context.clearRect(0, 0, canvas.width, canvas.height);
   }
 
-  #activateListeners(visualObjectInstance) {
+  #rerender() {
+    this.#clear();
+    this.#dino.renderDino();
+  }
+
+  #activateListeners() {
     const keyboardEvent = (event) => {
       if (event.key !== "ArrowUp") {
         return;
       }
 
-      if (visualObjectInstance.xCoordinate < -200) {
+      if (this.#dino.xCoordinate < -200) {
         return;
       }
 
       const upInterval = setInterval(() => {
-        if (visualObjectInstance.xCoordinate < -200) {
+        if (this.#dino.xCoordinate < -200) {
           clearInterval(upInterval);
 
           const bottomInterval = setInterval(() => {
-            if (visualObjectInstance.xCoordinate > 0) {
-              visualObjectInstance.xCoordinate = 0;
+            if (this.#dino.xCoordinate > 0) {
+              this.#dino.xCoordinate = 0;
               clearInterval(bottomInterval);
             }
 
-            visualObjectInstance.xCoordinate += 4;
-            this.#clear();
-            visualObjectInstance.renderDino();
+            this.#dino.xCoordinate += 4;
+            this.#rerender();
           });
         }
 
-        visualObjectInstance.xCoordinate -= 4;
-        this.#clear();
-        visualObjectInstance.renderDino();
+        this.#dino.xCoordinate -= 4;
+        this.#rerender();
       });
     };
 
@@ -52,10 +57,8 @@ export class Render {
   }
 
   #render() {
-    const dino = new Dino();
+    this.#dino.renderDino();
 
-    dino.renderDino();
-
-    this.#activateListeners(dino);
+    this.#activateListeners(this.#dino);
   }
 }
