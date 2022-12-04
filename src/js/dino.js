@@ -2,16 +2,23 @@ import { Canvas } from "./canvas";
 import { Pixel } from "./pixel";
 
 export class Dino {
+  #xCoordinate = 0;
+
+  get xCoordinate() {
+    return this.#xCoordinate;
+  }
+
+  set xCoordinate(x) {
+    this.#xCoordinate = x;
+  }
+
   renderDino() {
     const { canvas, context } = Canvas.getCanvasAndContext();
     const width = Pixel.width;
     const height = Pixel.height;
 
-    console.log("width", width);
-    console.log("height", height);
-
     const basicWidth = canvas.width / 10;
-    const basicHeight = (canvas.height / 10) * 9;
+    const basicHeight = (canvas.height / 10) * 9 + this.#xCoordinate;
 
     context.fillRect(basicWidth, basicHeight - 40, width, height);
     context.fillRect(basicWidth, basicHeight - 35, width, height);
@@ -39,10 +46,82 @@ export class Dino {
     context.fillRect(basicWidth + 55, basicHeight - 65, width, height);
     context.fillRect(basicWidth + 55, basicHeight - 70, width, height);
     context.fillRect(basicWidth + 65, basicHeight - 70, width, height);
-
-    // ! stopped here
-    context.fillRect(basicWidth + 70, basicHeight - 95, width, height);
-
+    context.fillRect(basicWidth + 70, basicHeight - 65, width, height);
+    context.fillRect(basicWidth + 65, basicHeight - 65, width, height);
+    context.fillRect(basicWidth + 65, basicHeight - 60, width, height);
+    context.fillRect(basicWidth + 60, basicHeight - 60, width, height);
+    context.fillRect(basicWidth + 85, basicHeight - 45, width, height);
+    context.fillRect(basicWidth + 80, basicHeight - 45, width, height);
+    context.fillRect(basicWidth + 75, basicHeight - 45, width, height);
+    context.fillRect(basicWidth + 75, basicHeight - 40, width, height);
+    context.fillRect(basicWidth + 75, basicHeight - 35, width, height);
+    context.fillRect(basicWidth + 80, basicHeight - 30, width, height);
+    context.fillRect(basicWidth + 75, basicHeight - 30, width, height);
+    context.fillRect(basicWidth + 70, basicHeight - 30, width, height);
+    context.fillRect(basicWidth + 70, basicHeight - 25, width, height);
+    context.fillRect(basicWidth + 70, basicHeight - 20, width, height);
+    context.fillRect(basicWidth + 70, basicHeight - 15, width, height);
+    context.fillRect(basicWidth + 75, basicHeight - 15, width, height);
+    context.fillRect(basicWidth + 80, basicHeight - 15, width, height);
+    context.fillRect(basicWidth + 80, basicHeight - 10, width, height);
+    context.fillRect(basicWidth + 65, basicHeight - 10, width, height);
+    context.fillRect(basicWidth + 65, basicHeight - 5, width, height);
+    context.fillRect(basicWidth + 65, basicHeight, width, height);
+    context.fillRect(basicWidth + 60, basicHeight, width, height);
+    context.fillRect(basicWidth + 60, basicHeight + 5, width, height);
+    context.fillRect(basicWidth + 55, basicHeight + 5, width, height);
+    context.fillRect(basicWidth + 50, basicHeight + 5, width, height);
+    context.fillRect(basicWidth + 45, basicHeight, width, height);
+    context.fillRect(basicWidth + 40, basicHeight - 5, width, height);
+    context.fillRect(basicWidth + 35, basicHeight - 5, width, height);
+    context.fillRect(basicWidth + 30, basicHeight - 5, width, height);
+    context.fillRect(basicWidth + 25, basicHeight - 5, width, height);
+    context.fillRect(basicWidth + 20, basicHeight - 5, width, height);
+    context.fillRect(basicWidth + 55, basicHeight + 15, width, height);
+    context.fillRect(basicWidth + 55, basicHeight + 20, width, height);
+    context.fillRect(basicWidth + 55, basicHeight + 25, width, height);
+    context.fillRect(basicWidth + 60, basicHeight + 25, width, height);
+    context.fillRect(basicWidth + 60, basicHeight - 50, width, height);
+    context.fillRect(basicWidth + 65, basicHeight - 50, width, height);
+    context.fillRect(basicWidth + 70, basicHeight - 50, width, height);
+    context.fillRect(basicWidth + 75, basicHeight - 50, width, height);
+    context.fillRect(basicWidth + 80, basicHeight - 50, width, height);
+    context.fillRect(basicWidth + 70, basicHeight - 55, width, height);
+    context.fillRect(basicWidth + 75, basicHeight - 55, width, height);
+    context.fillRect(basicWidth + 75, basicHeight - 60, width, height);
+    context.fillRect(basicWidth + 55, basicHeight - 50, width, height);
+    context.fillRect(basicWidth + 55, basicHeight - 45, width, height);
+    context.fillRect(basicWidth + 55, basicHeight - 40, width, height);
+    context.fillRect(basicWidth + 50, basicHeight - 40, width, height);
+    context.fillRect(basicWidth + 50, basicHeight - 35, width, height);
+    context.fillRect(basicWidth + 45, basicHeight - 35, width, height);
+    context.fillRect(basicWidth + 45, basicHeight - 30, width, height);
+    context.fillRect(basicWidth + 40, basicHeight - 30, width, height);
+    context.fillRect(basicWidth + 40, basicHeight - 25, width, height);
+    context.fillRect(basicWidth + 35, basicHeight - 25, width, height);
+    context.fillRect(basicWidth + 35, basicHeight - 20, width, height);
+    context.fillRect(basicWidth + 40, basicHeight - 20, width, height);
+    context.fillRect(basicWidth + 40, basicHeight - 15, width, height);
+    context.fillRect(basicWidth + 35, basicHeight - 15, width, height);
+    context.fillRect(basicWidth + 30, basicHeight - 15, width, height);
+    context.fillRect(basicWidth + 25, basicHeight - 15, width, height);
+    context.fillRect(basicWidth + 60, basicHeight - 15, width, height);
+    context.fillRect(basicWidth + 55, basicHeight - 15, width, height);
+    context.fillRect(basicWidth + 50, basicHeight - 15, width, height);
+    context.fillRect(basicWidth + 50, basicHeight - 10, width, height);
+    context.fillRect(basicWidth + 55, basicHeight - 10, width, height);
+    context.fillRect(basicWidth + 50, basicHeight - 5, width, height);
+    context.fillRect(basicWidth + 50, basicHeight - 25, width, height);
+    context.fillRect(basicWidth + 55, basicHeight - 25, width, height);
+    context.fillRect(basicWidth + 60, basicHeight - 25, width, height);
+    context.fillRect(basicWidth + 60, basicHeight - 30, width, height);
+    context.fillRect(basicWidth + 65, basicHeight - 35, width, height);
+    context.fillRect(basicWidth + 65, basicHeight - 40, width, height);
+    context.fillRect(basicWidth + 90, basicHeight - 30, width, height);
+    context.fillRect(basicWidth + 95, basicHeight - 45, width, height);
+    context.fillRect(basicWidth + 95, basicHeight - 50, width, height);
+    context.fillRect(basicWidth + 95, basicHeight - 55, width, height);
+    context.fillRect(basicWidth + 95, basicHeight - 60, width, height);
     context.fillRect(basicWidth + 70, basicHeight - 70, width, height);
     context.fillRect(basicWidth + 75, basicHeight - 70, width, height);
     context.fillRect(basicWidth + 80, basicHeight - 70, width, height);

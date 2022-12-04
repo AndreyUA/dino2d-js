@@ -16,9 +16,46 @@ export class Render {
     context.clearRect(0, 0, canvas.width, canvas.height);
   }
 
+  #activateListeners(visualObjectInstance) {
+    const keyboardEvent = (event) => {
+      if (event.key !== "ArrowUp") {
+        return;
+      }
+
+      if (visualObjectInstance.xCoordinate < -200) {
+        return;
+      }
+
+      const upInterval = setInterval(() => {
+        if (visualObjectInstance.xCoordinate < -200) {
+          clearInterval(upInterval);
+
+          const bottomInterval = setInterval(() => {
+            if (visualObjectInstance.xCoordinate > 0) {
+              visualObjectInstance.xCoordinate = 0;
+              clearInterval(bottomInterval);
+            }
+
+            visualObjectInstance.xCoordinate += 4;
+            this.#clear();
+            visualObjectInstance.renderDino();
+          });
+        }
+
+        visualObjectInstance.xCoordinate -= 4;
+        this.#clear();
+        visualObjectInstance.renderDino();
+      });
+    };
+
+    globalThis.document.addEventListener("keydown", keyboardEvent);
+  }
+
   #render() {
     const dino = new Dino();
 
     dino.renderDino();
+
+    this.#activateListeners(dino);
   }
 }
